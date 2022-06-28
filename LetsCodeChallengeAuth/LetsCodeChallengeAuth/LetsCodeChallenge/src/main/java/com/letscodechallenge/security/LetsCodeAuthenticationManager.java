@@ -1,0 +1,18 @@
+package com.letscodechallenge.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+
+public class LetsCodeAuthenticationManager implements AuthenticationManager{
+
+	@Autowired
+	private AuthenticationManager authenticatonManager;
+	
+	@Override
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+		return authenticatonManager.authenticate(authentication);
+	}
+
+}

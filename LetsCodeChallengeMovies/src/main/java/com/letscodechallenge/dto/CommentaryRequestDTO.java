@@ -1,0 +1,12 @@
+package com.letscodechallenge.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class CommentaryRequestDTO {
+    private String description;
+    private String user;
+    private String movieId;
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="145b5f9e-6e1c-458a-b008-19a181213c86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/src/main/java/com/letscodechallenge/LetsCodeChallengeApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallenge/src/test/java/com/letscodechallenge/LetsCodeChallengeApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/src/main/java/com/letscodechallenge/LetsCodeChallengeApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LetsCodeChallengeMovies/src/test/java/com/letscodechallenge/LetsCodeChallengeApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/LetsCodeChallenge" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2B1dLy5MIBN8W0Mo5mjfJCbIPn9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lucas/Desktop/Github/LetsCodeChallenge/LetsCodeChallenge&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="145b5f9e-6e1c-458a-b008-19a181213c86" name="Changes" comment="" />
+      <created>1656077472763</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656077472763</updated>
+      <workItem from="1656077473964" duration="99000" />
+      <workItem from="1656213035532" duration="19000" />
+      <workItem from="1656259191718" duration="2950000" />
+      <workItem from="1656264323131" duration="654000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
