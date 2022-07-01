@@ -71,6 +71,16 @@ public class CommentaryService {
         if(commentary != null){
             commentary.setLike(commentary.getLike()+ commentaryReactRequestDTO.getLike());
             commentary.setDeslike(commentary.getDeslike()+ commentaryReactRequestDTO.getDeslike());
+            commentaryRepository.save(commentary);
+        }
+        return commentary;
+    }
+
+    public Commentary markCommentaryAsRepeated(Long commentaryId, CommentaryRepeatedRequestDTO commentaryRepeatedRequestDTO) {
+        Commentary commentary = commentaryRepository.findCommentaryById(commentaryId);
+        if(commentary != null){
+            commentary.setRepeated(commentaryRepeatedRequestDTO.isRepeated());
+            commentaryRepository.save(commentary);
         }
         return commentary;
     }

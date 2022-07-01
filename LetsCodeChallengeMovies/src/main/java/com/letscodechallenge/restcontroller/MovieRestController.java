@@ -76,4 +76,12 @@ public class MovieRestController {
 		CommentaryResponseDTO commentaryResponseDTO = new CommentaryResponseDTO(commentaryReaction);
 		return ResponseEntity.ok(commentaryResponseDTO);
 	}
+
+	@RequestMapping(value ="/comment/{commentaryId}/repeated", method = RequestMethod.PUT)
+	@Transactional
+	public ResponseEntity<CommentaryResponseDTO> markCommentaryAsRepeated (@PathVariable Long commentaryId, @RequestBody CommentaryRepeatedRequestDTO commentaryRepeatedRequestDTO, UriComponentsBuilder uriBuilder){
+		Commentary commentaryAsRepeated = commentaryService.markCommentaryAsRepeated(commentaryId,commentaryRepeatedRequestDTO);
+		CommentaryResponseDTO commentaryResponseDTO = new CommentaryResponseDTO(commentaryAsRepeated);
+		return ResponseEntity.ok(commentaryResponseDTO);
+	}
 }

@@ -24,6 +24,8 @@ public class CommentaryResponseDTO {
     private int like;
     private int deslike;
 
+    private boolean repeated;
+
     public CommentaryResponseDTO(Commentary commentary) {
         this.id = commentary.getId();
         this.description = commentary.getDescription();
@@ -38,5 +40,6 @@ public class CommentaryResponseDTO {
         }
         this.like = commentary.getLike();
         this.deslike = commentary.getDeslike();
+        this.repeated = commentary.isRepeated();
     }
 }
