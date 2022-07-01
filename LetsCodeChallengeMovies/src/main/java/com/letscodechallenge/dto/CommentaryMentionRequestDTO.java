@@ -5,8 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CommentaryRequestDTO {
+public class CommentaryMentionRequestDTO {
+
     private String description;
     private Long userId;
-    private String movieTitle;
+    private Long mentionedCommentaryId;
+
 }

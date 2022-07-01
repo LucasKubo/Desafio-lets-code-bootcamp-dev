@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class RatingRequestDTO {
 	private Long userId;
-	private int rating;
-	private String movieId;
+	private int value;
+	private String movieTitle;
 }

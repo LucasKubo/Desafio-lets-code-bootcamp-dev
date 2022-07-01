@@ -28,6 +28,9 @@ public class User{
 
 	private int score;
 
+	@Column(nullable = false,name="roleid")
+	private Long roleId;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "roleid", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "role_user"))
 	private Role role;
@@ -38,4 +41,5 @@ public class User{
 			orphanRemoval = true
 	)
 	private List<Commentary> comments;
+
 }

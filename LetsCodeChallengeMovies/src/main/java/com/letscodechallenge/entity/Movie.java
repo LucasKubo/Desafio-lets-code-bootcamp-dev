@@ -18,15 +18,9 @@ public class Movie {
 
     private String title;
 
-    @OneToMany(mappedBy = "movie",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
+    @OneToMany(mappedBy = "movie")
     private List<Rating> ratings;
 
-    @OneToMany(
-            mappedBy = "movie",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "movie")
     private List<Commentary> comments;
 }

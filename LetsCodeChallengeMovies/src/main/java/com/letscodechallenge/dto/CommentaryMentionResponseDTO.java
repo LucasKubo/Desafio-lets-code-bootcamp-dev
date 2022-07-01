@@ -14,25 +14,23 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CommentaryResponseDTO {
-
-    private  Long id;
+public class CommentaryMentionResponseDTO {
     private String description;
     private UserResponseDTO user = new UserResponseDTO();
     private List<CommentaryResponseDTO> answers = new ArrayList<>();
     private List<CommentaryResponseDTO> mentions = new ArrayList<>();
 
-    public CommentaryResponseDTO(Commentary commentary) {
-        this.id = commentary.getId();
+    public CommentaryMentionResponseDTO(Commentary commentary) {
         this.description = commentary.getDescription();
-        if(commentary.getUser() != null) {
-            BeanUtils.copyProperties(commentary.getUser(),this.user);
+        if (commentary.getUser() != null) {
+            BeanUtils.copyProperties(commentary.getUser(), this.user);
         }
         if(!CollectionUtils.isEmpty(commentary.getAnswers())){
             this.answers = commentary.getAnswers().stream().map(CommentaryResponseDTO::new).collect(Collectors.toList());
         }
-        if(!CollectionUtils.isEmpty(commentary.getMentions())){
+        if (!CollectionUtils.isEmpty(commentary.getMentions())) {
             this.mentions = commentary.getMentions().stream().map(CommentaryResponseDTO::new).collect(Collectors.toList());
         }
+
     }
 }

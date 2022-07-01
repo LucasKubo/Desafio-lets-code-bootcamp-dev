@@ -9,5 +9,7 @@ import com.letscodechallenge.entity.User;
 public interface IUserRepository extends CrudRepository<User, Long>{
 
 	User findByUsername(String username);
+
+	User findUserById(Long id);
 	
 }

@@ -1,21 +1,27 @@
 package com.letscodechallenge.dto;
 
+import com.letscodechallenge.entity.Commentary;
 import com.letscodechallenge.entity.Rating;
-import com.letscodechallenge.service.MovieService;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.BeanUtils;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class RatingResponseDTO {
-    private int value;
-    private String movieTitle;
-    private String movieId;
 
-    public RatingResponseDTO(Rating rating, MovieService movieService) {
+    private Long ratingId;
+    private int value;
+
+    private UserResponseDTO user = new UserResponseDTO();
+
+    public RatingResponseDTO(Rating rating) {
+        this.ratingId = rating.getId();
         this.value = rating.getValue();
-        this.movieTitle = movieService.findMovieById(rating.getMovieId()).getTitle();
-        this.movieId = rating.getMovieId();
+        if(rating.getUser() != null){
+            BeanUtils.copyProperties(rating.getUser(),this.user);
+        }
     }
 }

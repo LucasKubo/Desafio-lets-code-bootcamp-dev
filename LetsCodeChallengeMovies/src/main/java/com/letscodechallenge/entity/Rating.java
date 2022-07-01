@@ -2,6 +2,7 @@ package com.letscodechallenge.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 
@@ -17,6 +18,15 @@ public class Rating {
 
     @Column(name="movieid")
     private String movieId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="movieid", updatable = false, insertable = false)
     private Movie movie;
+
+    @Column(name="userid")
+    private Long userId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="userid", updatable = false, insertable = false)
+    private User user;
+
 }
