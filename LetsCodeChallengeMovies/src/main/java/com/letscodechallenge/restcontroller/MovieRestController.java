@@ -6,7 +6,6 @@ import com.letscodechallenge.entity.Rating;
 import com.letscodechallenge.service.CommentaryService;
 import com.letscodechallenge.service.MovieService;
 import com.letscodechallenge.service.RatingService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +47,7 @@ public class MovieRestController {
 	public ResponseEntity<RatingResponseDTO> rate(@RequestBody RatingRequestDTO ratingRequestDTO, UriComponentsBuilder uriBuilder){
 		Rating rating = ratingService.rate(ratingRequestDTO);
 		RatingResponseDTO ratingResponseDTO = new RatingResponseDTO(rating);
-		URI uri = uriBuilder.path("/rate/{ratinId}").buildAndExpand(rating.getId()).toUri();
+		URI uri = uriBuilder.path("/rate/{ratingId}").buildAndExpand(rating.getId()).toUri();
 		return ResponseEntity.created(uri).body(ratingResponseDTO);
 	}
 
@@ -57,7 +56,7 @@ public class MovieRestController {
 	public ResponseEntity<CommentaryAnswerResponseDTO> answerCommentary(@RequestBody CommentaryAnswerRequestDTO commentaryAnswerRequestDTO, UriComponentsBuilder uriBuilder){
 		Commentary commentaryAnswer = commentaryService.answerCommentary(commentaryAnswerRequestDTO);
 		CommentaryAnswerResponseDTO commentaryAnswerResponseDTO = new CommentaryAnswerResponseDTO(commentaryAnswer);
-		URI uri = uriBuilder.path("/{movieTitle}").buildAndExpand(commentaryAnswer.getId()).toUri();
+		URI uri = uriBuilder.path("/comment/{answerId}").buildAndExpand(commentaryAnswer.getId()).toUri();
 		return ResponseEntity.created(uri).body(commentaryAnswerResponseDTO);
 	}
 
@@ -66,13 +65,15 @@ public class MovieRestController {
 	public ResponseEntity<CommentaryMentionResponseDTO> answerCommentary(@RequestBody CommentaryMentionRequestDTO commentaryMentionRequestDTO, UriComponentsBuilder uriBuilder){
 		Commentary commentaryMention = commentaryService.metionCommentary(commentaryMentionRequestDTO);
 		CommentaryMentionResponseDTO commentaryMentionResponseDTO = new CommentaryMentionResponseDTO(commentaryMention);
-		URI uri = uriBuilder.path("/{movieTitle}").buildAndExpand(commentaryMention.getId()).toUri();
+		URI uri = uriBuilder.path("/comment/{mentionId}").buildAndExpand(commentaryMention.getId()).toUri();
 		return ResponseEntity.created(uri).body(commentaryMentionResponseDTO);
 	}
 
 	@RequestMapping(value ="/comment/{commentaryId}/react", method = RequestMethod.PUT)
 	@Transactional
-	public ResponseEntity<CommentaryMentionResponseDTO> reactCommentary(@PathVariable Long commentaryId, @RequestBody CommentaryReactDTO commentaryReactDTO, UriComponentsBuilder uriBuilder){
-		return null;
+	public ResponseEntity<CommentaryResponseDTO> reactCommentary(@PathVariable Long commentaryId, @RequestBody CommentaryReactRequestDTO commentaryReactRequestDTO, UriComponentsBuilder uriBuilder){
+		Commentary commentaryReaction = commentaryService.reactCommentary(commentaryId,commentaryReactRequestDTO);
+		CommentaryResponseDTO commentaryResponseDTO = new CommentaryResponseDTO(commentaryReaction);
+		return ResponseEntity.ok(commentaryResponseDTO);
 	}
 }

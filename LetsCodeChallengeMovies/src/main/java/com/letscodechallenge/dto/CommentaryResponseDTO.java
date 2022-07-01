@@ -21,6 +21,8 @@ public class CommentaryResponseDTO {
     private UserResponseDTO user = new UserResponseDTO();
     private List<CommentaryResponseDTO> answers = new ArrayList<>();
     private List<CommentaryResponseDTO> mentions = new ArrayList<>();
+    private int like;
+    private int deslike;
 
     public CommentaryResponseDTO(Commentary commentary) {
         this.id = commentary.getId();
@@ -34,5 +36,7 @@ public class CommentaryResponseDTO {
         if(!CollectionUtils.isEmpty(commentary.getMentions())){
             this.mentions = commentary.getMentions().stream().map(CommentaryResponseDTO::new).collect(Collectors.toList());
         }
+        this.like = commentary.getLike();
+        this.deslike = commentary.getDeslike();
     }
 }

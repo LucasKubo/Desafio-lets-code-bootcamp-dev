@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CommentaryReactDTO {
-
+public class CommentaryReactRequestDTO {
+    private int like;
+    private int deslike;
 }

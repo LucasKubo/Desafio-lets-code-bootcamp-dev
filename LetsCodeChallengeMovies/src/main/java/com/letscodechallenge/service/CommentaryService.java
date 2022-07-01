@@ -1,9 +1,6 @@
 package com.letscodechallenge.service;
 
-import com.letscodechallenge.dto.CommentaryAnswerRequestDTO;
-import com.letscodechallenge.dto.CommentaryMentionRequestDTO;
-import com.letscodechallenge.dto.CommentaryMentionResponseDTO;
-import com.letscodechallenge.dto.CommentaryRequestDTO;
+import com.letscodechallenge.dto.*;
 import com.letscodechallenge.entity.Commentary;
 import com.letscodechallenge.repository.ICommentaryRepository;
 import com.letscodechallenge.repository.IUserRepository;
@@ -67,5 +64,14 @@ public class CommentaryService {
             return commentaryMention;
         }
         return null;
+    }
+
+    public Commentary reactCommentary(Long commentaryId, CommentaryReactRequestDTO commentaryReactRequestDTO){
+        Commentary commentary = commentaryRepository.findCommentaryById(commentaryId);
+        if(commentary != null){
+            commentary.setLike(commentary.getLike()+ commentaryReactRequestDTO.getLike());
+            commentary.setDeslike(commentary.getDeslike()+ commentaryReactRequestDTO.getDeslike());
+        }
+        return commentary;
     }
 }
