@@ -29,59 +29,52 @@ public class MovieRestController {
 
 	@RequestMapping(value ="/{movieTitle}", method = RequestMethod.GET)
 	public ResponseEntity<MovieResponseDTO> findMovie(@PathVariable String movieTitle){
-		MovieResponseDTO movieResponseDTO = movieService.findMovieByTitle(movieTitle);
-		return new ResponseEntity<>(movieResponseDTO, HttpStatus.OK);
+		return ResponseEntity.ok(movieService.findMovieByTitle(movieTitle));
 	}
 
 	@RequestMapping(value = "/comment", method = RequestMethod.POST)
 	@Transactional
 	public ResponseEntity<CommentaryResponseDTO> comment(@RequestBody CommentaryRequestDTO commentaryRequestDTO, UriComponentsBuilder uriBuilder){
 		Commentary commentary = commentaryService.createCommentary(commentaryRequestDTO);
-		CommentaryResponseDTO commentaryResponseDTO = new CommentaryResponseDTO(commentary);
 		URI uri = uriBuilder.path("/comment/{commentaryId}").buildAndExpand(commentary.getId()).toUri();
-		return ResponseEntity.created(uri).body(commentaryResponseDTO);
+		return ResponseEntity.created(uri).body(new CommentaryResponseDTO(commentary));
 	}
 
 	@RequestMapping(value ="/rate", method = RequestMethod.POST)
 	@Transactional
 	public ResponseEntity<RatingResponseDTO> rate(@RequestBody RatingRequestDTO ratingRequestDTO, UriComponentsBuilder uriBuilder){
 		Rating rating = ratingService.rate(ratingRequestDTO);
-		RatingResponseDTO ratingResponseDTO = new RatingResponseDTO(rating);
 		URI uri = uriBuilder.path("/rate/{ratingId}").buildAndExpand(rating.getId()).toUri();
-		return ResponseEntity.created(uri).body(ratingResponseDTO);
+		return ResponseEntity.created(uri).body(new RatingResponseDTO(rating));
 	}
 
 	@RequestMapping(value ="/comment/answer", method = RequestMethod.POST)
 	@Transactional
 	public ResponseEntity<CommentaryAnswerResponseDTO> answerCommentary(@RequestBody CommentaryAnswerRequestDTO commentaryAnswerRequestDTO, UriComponentsBuilder uriBuilder){
 		Commentary commentaryAnswer = commentaryService.answerCommentary(commentaryAnswerRequestDTO);
-		CommentaryAnswerResponseDTO commentaryAnswerResponseDTO = new CommentaryAnswerResponseDTO(commentaryAnswer);
 		URI uri = uriBuilder.path("/comment/{answerId}").buildAndExpand(commentaryAnswer.getId()).toUri();
-		return ResponseEntity.created(uri).body(commentaryAnswerResponseDTO);
+		return ResponseEntity.created(uri).body(new CommentaryAnswerResponseDTO(commentaryAnswer));
 	}
 
 	@RequestMapping(value ="/comment/mention", method = RequestMethod.POST)
 	@Transactional
 	public ResponseEntity<CommentaryMentionResponseDTO> answerCommentary(@RequestBody CommentaryMentionRequestDTO commentaryMentionRequestDTO, UriComponentsBuilder uriBuilder){
 		Commentary commentaryMention = commentaryService.metionCommentary(commentaryMentionRequestDTO);
-		CommentaryMentionResponseDTO commentaryMentionResponseDTO = new CommentaryMentionResponseDTO(commentaryMention);
 		URI uri = uriBuilder.path("/comment/{mentionId}").buildAndExpand(commentaryMention.getId()).toUri();
-		return ResponseEntity.created(uri).body(commentaryMentionResponseDTO);
+		return ResponseEntity.created(uri).body(new CommentaryMentionResponseDTO(commentaryMention));
 	}
 
 	@RequestMapping(value ="/comment/{commentaryId}/react", method = RequestMethod.PUT)
 	@Transactional
 	public ResponseEntity<CommentaryResponseDTO> reactCommentary(@PathVariable Long commentaryId, @RequestBody CommentaryReactRequestDTO commentaryReactRequestDTO, UriComponentsBuilder uriBuilder){
 		Commentary commentaryReaction = commentaryService.reactCommentary(commentaryId,commentaryReactRequestDTO);
-		CommentaryResponseDTO commentaryResponseDTO = new CommentaryResponseDTO(commentaryReaction);
-		return ResponseEntity.ok(commentaryResponseDTO);
+		return ResponseEntity.ok(new CommentaryResponseDTO(commentaryReaction));
 	}
 
 	@RequestMapping(value ="/comment/{commentaryId}/repeated", method = RequestMethod.PUT)
 	@Transactional
 	public ResponseEntity<CommentaryResponseDTO> markCommentaryAsRepeated (@PathVariable Long commentaryId, @RequestBody CommentaryRepeatedRequestDTO commentaryRepeatedRequestDTO, UriComponentsBuilder uriBuilder){
 		Commentary commentaryAsRepeated = commentaryService.markCommentaryAsRepeated(commentaryId,commentaryRepeatedRequestDTO);
-		CommentaryResponseDTO commentaryResponseDTO = new CommentaryResponseDTO(commentaryAsRepeated);
-		return ResponseEntity.ok(commentaryResponseDTO);
+		return ResponseEntity.ok(new CommentaryResponseDTO(commentaryAsRepeated));
 	}
 }
