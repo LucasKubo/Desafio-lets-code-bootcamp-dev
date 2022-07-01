@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ICommentaryRepository extends CrudRepository<Commentary, Long> {
-    List<Commentary> findByMovieId (String movieId);
+    List<Commentary> findByMovieId (String id);
 
-    Commentary findCommentaryById(Long answeredCommentaryId);
+    Commentary findCommentaryById(Long id);
 }

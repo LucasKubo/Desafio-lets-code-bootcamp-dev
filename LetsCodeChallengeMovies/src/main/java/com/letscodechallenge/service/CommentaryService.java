@@ -44,14 +44,14 @@ public class CommentaryService {
             commentaryAnswer.setAnsweredCommentaryId(commentaryAnsweredRequestDTO.getAnsweredCommentaryId());
             commentaryAnswer.setDescription(commentaryAnsweredRequestDTO.getDescription());
             commentaryAnswer.setUserId(commentaryAnsweredRequestDTO.getUserId());
-            commentaryAnswer.setUser(userRepository.findUserById(commentary.getUserId()));
+            commentaryAnswer.setUser(userRepository.findUserById(commentaryAnsweredRequestDTO.getUserId()));
             commentaryRepository.save(commentaryAnswer);
             return commentaryAnswer;
         }
         return null;
     }
 
-    public Commentary metionCommentary(CommentaryMentionRequestDTO commentaryMentionRequestDTO){
+    public Commentary metioncommentary (CommentaryMentionRequestDTO commentaryMentionRequestDTO){
         //check if commentary exists
         Commentary commentary = commentaryRepository.findCommentaryById(commentaryMentionRequestDTO.getMentionedCommentaryId());
         if(commentary != null){
@@ -59,7 +59,7 @@ public class CommentaryService {
             commentaryMention.setMentionedCommentaryId(commentaryMentionRequestDTO.getMentionedCommentaryId());
             commentaryMention.setDescription(commentaryMentionRequestDTO.getDescription());
             commentaryMention.setUserId(commentaryMentionRequestDTO.getUserId());
-            commentaryMention.setUser(userRepository.findUserById(commentary.getUserId()));
+            commentaryMention.setUser(userRepository.findUserById(commentaryMentionRequestDTO.getUserId()));
             commentaryRepository.save(commentaryMention);
             return commentaryMention;
         }

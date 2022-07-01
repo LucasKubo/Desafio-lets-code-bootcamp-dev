@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.letscodechallenge.entity.User;
-import com.letscodechallenge.security.conponent.UserRequest;
+import com.letscodechallenge.security.component.UserRequest;
 import com.letscodechallenge.service.UserService;
 import com.letscodechallenge.utils.JwtTokenUtils;
 

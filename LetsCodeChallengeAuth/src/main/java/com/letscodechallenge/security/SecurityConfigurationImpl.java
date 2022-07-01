@@ -38,10 +38,7 @@ public class SecurityConfigurationImpl extends WebSecurityConfigurerAdapter{
 		http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers(HttpMethod.GET,"/restricted/api/v1/movie").hasAnyRole("READER","BASIC","ADVANCED","MODERATOR")
-        .antMatchers(HttpMethod.POST,"/restricted/api/v1/movie/rating").hasAnyRole("READER","BASIC","ADVANCED","MODERATOR")
-        .antMatchers(HttpMethod.POST,"/restricted/api/v1/movie/comment").hasAnyRole("BASIC","ADVANCED","MODERATOR")
-        .antMatchers(HttpMethod.POST,"/restricted/api/v1/movie/comment/answer").hasAnyRole("BASIC","ADVANCED","MODERATOR")
+        .antMatchers("/restricted/api/v1/movie").hasAnyRole("READER","BASIC","ADVANCED","MODERATOR")
         .antMatchers("/public/**").permitAll()
         .antMatchers("/webjars/**").permitAll()
         .antMatchers("/swagger-ui.html").permitAll()

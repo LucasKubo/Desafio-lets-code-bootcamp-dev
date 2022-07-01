@@ -33,7 +33,7 @@ public class Commentary {
 
     @Column(name="userid")
     private Long userId;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="userid", updatable = false, insertable = false)
     private User user;
 
@@ -53,5 +53,5 @@ public class Commentary {
     private Commentary mentionedCommentary;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "mentionedCommentary")
-    private List<Commentary> metions;
+    private List<Commentary> mentions;
 }

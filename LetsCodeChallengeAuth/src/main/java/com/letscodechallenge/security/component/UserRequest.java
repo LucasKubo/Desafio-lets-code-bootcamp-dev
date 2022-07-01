@@ -1,4 +1,4 @@
-package com.letscodechallenge.security.conponent;
+package com.letscodechallenge.security.component;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;

@@ -1,12 +1,10 @@
 package com.letscodechallenge.security.filter;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-
-import javax.servlet.FilterChain;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.google.gson.Gson;
+import com.letscodechallenge.dto.UserResponseDTO;
+import com.letscodechallenge.entity.User;
+import com.letscodechallenge.service.UserService;
+import com.letscodechallenge.utils.JwtTokenUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,11 +14,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.google.gson.Gson;
-import com.letscodechallenge.dto.UserResponseDTO;
-import com.letscodechallenge.entity.User;
-import com.letscodechallenge.service.UserService;
-import com.letscodechallenge.utils.JwtTokenUtils;
+import javax.servlet.FilterChain;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 public class LetsCodeJwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	private final AuthenticationManager authenticationManager;

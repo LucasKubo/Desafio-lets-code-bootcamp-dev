@@ -7,7 +7,6 @@ import com.letscodechallenge.service.CommentaryService;
 import com.letscodechallenge.service.MovieService;
 import com.letscodechallenge.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -58,27 +57,27 @@ public class MovieRestController {
 
 	@RequestMapping(value ="/comment/mention", method = RequestMethod.POST)
 	@Transactional
-	public ResponseEntity<CommentaryMentionResponseDTO> answerCommentary(@RequestBody CommentaryMentionRequestDTO commentaryMentionRequestDTO, UriComponentsBuilder uriBuilder){
-		Commentary commentaryMention = commentaryService.metionCommentary(commentaryMentionRequestDTO);
+	public ResponseEntity<CommentaryMentionResponseDTO> mentionCommentary(@RequestBody CommentaryMentionRequestDTO commentaryMentionRequestDTO, UriComponentsBuilder uriBuilder){
+		Commentary commentaryMention = commentaryService.metioncommentary(commentaryMentionRequestDTO);
 		URI uri = uriBuilder.path("/comment/{mentionId}").buildAndExpand(commentaryMention.getId()).toUri();
 		return ResponseEntity.created(uri).body(new CommentaryMentionResponseDTO(commentaryMention));
 	}
 
-	@RequestMapping(value ="/comment/{commentaryId}/react", method = RequestMethod.PUT)
+	@RequestMapping(value ="/comment/react/{commentaryId}", method = RequestMethod.PUT)
 	@Transactional
 	public ResponseEntity<CommentaryResponseDTO> reactCommentary(@PathVariable Long commentaryId, @RequestBody CommentaryReactRequestDTO commentaryReactRequestDTO){
 		Commentary commentaryReaction = commentaryService.reactCommentary(commentaryId,commentaryReactRequestDTO);
 		return ResponseEntity.ok(new CommentaryResponseDTO(commentaryReaction));
 	}
 
-	@RequestMapping(value ="/comment/{commentaryId}/repeated", method = RequestMethod.PUT)
+	@RequestMapping(value ="/comment/repeated/{commentaryId}", method = RequestMethod.PUT)
 	@Transactional
 	public ResponseEntity<CommentaryResponseDTO> markCommentaryAsRepeated (@PathVariable Long commentaryId, @RequestBody CommentaryRepeatedRequestDTO commentaryRepeatedRequestDTO){
 		Commentary commentaryAsRepeated = commentaryService.markCommentaryAsRepeated(commentaryId,commentaryRepeatedRequestDTO);
 		return ResponseEntity.ok(new CommentaryResponseDTO(commentaryAsRepeated));
 	}
 
-	@RequestMapping(value="/comment/{commentaryId}/delete", method = RequestMethod.DELETE)
+	@RequestMapping(value="/comment/delete/{commentaryId}", method = RequestMethod.DELETE)
 	@Transactional
 	public ResponseEntity<?> deleteCommentary (@PathVariable Long commentaryId){
 		commentaryService.deleteCommentary(commentaryId);
