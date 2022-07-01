@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "96f816fb-cd83-496d-9442-2952160638c0",
+		"name": "CodeChallenge-LetsCode_v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21638616"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"moderator\",\r\n    \"password\": \"moderator\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/api/v1/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"api",
+						"v1",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"moderator\",\r\n    \"password\": \"moderator\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk5NzgsInN1YiI6Im1vZGVyYXRvciIsImlhdCI6MTY1NjcxMDU3OH0.wUw5qFNWQMEuzj7KhEWqQL4Yfgb0uAPKtqgv2ZQykyHXhei3SXdHHepRcREtWCaUFarzj_8Y1ZqBiJvxJsAvZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/batman",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"batman"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk5NTksInN1YiI6ImFkdmFuY2VkIiwiaWF0IjoxNjU2NzEwNTU5fQ.M8hixabAbdMIg0K4RZwfE3rrJZTBnBk-_w6-47yb_hR6QXUW52xgX4ZpyTrWphYfYv0pghayjQipwkHFZwZdfg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Meu primeiro comentário !\",\r\n    \"movieTitle\": \"batman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rate Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk4OTMsInN1YiI6InJlYWRlciIsImlhdCI6MTY1NjcxMDQ5M30.YLyeZ_uVRHQAczrm_zGsUBB-p5YxrDfDKz5JHv1SySWBUN1DCAQZdzogkSSSN2mTPx0l5NLVPBvrw3DaQrSqjQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\":\"5\",\r\n    \"movieTitle\":\"batman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/rate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"rate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Answer Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk5NzgsInN1YiI6Im1vZGVyYXRvciIsImlhdCI6MTY1NjcxMDU3OH0.wUw5qFNWQMEuzj7KhEWqQL4Yfgb0uAPKtqgv2ZQykyHXhei3SXdHHepRcREtWCaUFarzj_8Y1ZqBiJvxJsAvZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\":\"Minha resposta\",\r\n    \"answeredCommentaryId\":\"23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/comment/answer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"comment",
+						"answer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mention Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk4OTMsInN1YiI6InJlYWRlciIsImlhdCI6MTY1NjcxMDQ5M30.YLyeZ_uVRHQAczrm_zGsUBB-p5YxrDfDKz5JHv1SySWBUN1DCAQZdzogkSSSN2mTPx0l5NLVPBvrw3DaQrSqjQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Minha primeira menção\",\r\n    \"mentionedCommentaryId\": \"24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/comment/mention",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"comment",
+						"mention"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "React Commentary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk5NTksInN1YiI6ImFkdmFuY2VkIiwiaWF0IjoxNjU2NzEwNTU5fQ.M8hixabAbdMIg0K4RZwfE3rrJZTBnBk-_w6-47yb_hR6QXUW52xgX4ZpyTrWphYfYv0pghayjQipwkHFZwZdfg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"like\":\"1\",\r\n    \"deslike\":\"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/comment/react/28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"comment",
+						"react",
+						"28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarkAsRepeated Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk5NzgsInN1YiI6Im1vZGVyYXRvciIsImlhdCI6MTY1NjcxMDU3OH0.wUw5qFNWQMEuzj7KhEWqQL4Yfgb0uAPKtqgv2ZQykyHXhei3SXdHHepRcREtWCaUFarzj_8Y1ZqBiJvxJsAvZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"repeated\":\"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/comment/repeated/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"comment",
+						"repeated",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Promote User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk5NzgsInN1YiI6Im1vZGVyYXRvciIsImlhdCI6MTY1NjcxMDU3OH0.wUw5qFNWQMEuzj7KhEWqQL4Yfgb0uAPKtqgv2ZQykyHXhei3SXdHHepRcREtWCaUFarzj_8Y1ZqBiJvxJsAvZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/user/promote/506",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"user",
+						"promote",
+						"506"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove commentary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjQ1OTk5NzgsInN1YiI6Im1vZGVyYXRvciIsImlhdCI6MTY1NjcxMDU3OH0.wUw5qFNWQMEuzj7KhEWqQL4Yfgb0uAPKtqgv2ZQykyHXhei3SXdHHepRcREtWCaUFarzj_8Y1ZqBiJvxJsAvZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/restricted/api/v1/movie/comment/delete/32",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restricted",
+						"api",
+						"v1",
+						"movie",
+						"comment",
+						"delete",
+						"32"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OmdbApi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.omdbapi.com?apikey=c6847707&t=batman",
+					"protocol": "https",
+					"host": [
+						"www",
+						"omdbapi",
+						"com"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "c6847707"
+						},
+						{
+							"key": "t",
+							"value": "Matrix",
+							"disabled": true
+						},
+						{
+							"key": "t",
+							"value": "The avengers",
+							"disabled": true
+						},
+						{
+							"key": "t",
+							"value": "morbius",
+							"disabled": true
+						},
+						{
+							"key": "t",
+							"value": "batman"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
