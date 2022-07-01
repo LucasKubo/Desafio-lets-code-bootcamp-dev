@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.letscodechallenge.security.filter.JwtRequestFilter;
@@ -20,6 +21,9 @@ import com.letscodechallenge.utils.JwtTokenUtils;
 @EnableWebSecurity //Habilitar segurança no projeto
 public class SecurityConfigurationImpl extends WebSecurityConfigurerAdapter{
 	
+//	@Autowired
+//	private LetsCodeAuthenticationEntryPoint letsCodeAuthenticationEntryPoint ;
+
 	@Autowired
     private  UserService userService;
 	
@@ -39,12 +43,22 @@ public class SecurityConfigurationImpl extends WebSecurityConfigurerAdapter{
         .antMatchers(HttpMethod.POST,"/restricted/api/v1/movie/comment").hasAnyRole("BASIC","ADVANCED","MODERATOR")
         .antMatchers(HttpMethod.POST,"/restricted/api/v1/movie/comment/answer").hasAnyRole("BASIC","ADVANCED","MODERATOR")
         .antMatchers("/public/**").permitAll()
+        .antMatchers("/webjars/**").permitAll()
+        .antMatchers("/swagger-ui.html").permitAll()
+        .antMatchers("/v2/api-docs").permitAll()
+        .antMatchers("/swagger-resources/**").permitAll()
         .anyRequest().authenticated()
+//        .and()
+//        .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint())
 		.and()
 		.addFilter(new LetsCodeJwtAuthenticationFilter(authenticationManager(),jwtTokenUtils,userService))
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
+//	private AuthenticationEntryPoint authenticationEntryPoint() {
+//		// TODO Auto-generated method stub
+//		return letsCodeAuthenticationEntryPoint;
+//	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());
