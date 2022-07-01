@@ -66,15 +66,22 @@ public class MovieRestController {
 
 	@RequestMapping(value ="/comment/{commentaryId}/react", method = RequestMethod.PUT)
 	@Transactional
-	public ResponseEntity<CommentaryResponseDTO> reactCommentary(@PathVariable Long commentaryId, @RequestBody CommentaryReactRequestDTO commentaryReactRequestDTO, UriComponentsBuilder uriBuilder){
+	public ResponseEntity<CommentaryResponseDTO> reactCommentary(@PathVariable Long commentaryId, @RequestBody CommentaryReactRequestDTO commentaryReactRequestDTO){
 		Commentary commentaryReaction = commentaryService.reactCommentary(commentaryId,commentaryReactRequestDTO);
 		return ResponseEntity.ok(new CommentaryResponseDTO(commentaryReaction));
 	}
 
 	@RequestMapping(value ="/comment/{commentaryId}/repeated", method = RequestMethod.PUT)
 	@Transactional
-	public ResponseEntity<CommentaryResponseDTO> markCommentaryAsRepeated (@PathVariable Long commentaryId, @RequestBody CommentaryRepeatedRequestDTO commentaryRepeatedRequestDTO, UriComponentsBuilder uriBuilder){
+	public ResponseEntity<CommentaryResponseDTO> markCommentaryAsRepeated (@PathVariable Long commentaryId, @RequestBody CommentaryRepeatedRequestDTO commentaryRepeatedRequestDTO){
 		Commentary commentaryAsRepeated = commentaryService.markCommentaryAsRepeated(commentaryId,commentaryRepeatedRequestDTO);
 		return ResponseEntity.ok(new CommentaryResponseDTO(commentaryAsRepeated));
+	}
+
+	@RequestMapping(value="/comment/{commentaryId}/delete", method = RequestMethod.DELETE)
+	@Transactional
+	public ResponseEntity<?> deleteCommentary (@PathVariable Long commentaryId){
+		commentaryService.deleteCommentary(commentaryId);
+		return ResponseEntity.ok().build();
 	}
 }

@@ -84,4 +84,11 @@ public class CommentaryService {
         }
         return commentary;
     }
+
+    public void deleteCommentary(Long commentaryId) {
+        Commentary commentary = commentaryRepository.findCommentaryById(commentaryId);
+        if(commentary != null){
+            commentaryRepository.deleteById(commentaryId);
+        }
+    }
 }
