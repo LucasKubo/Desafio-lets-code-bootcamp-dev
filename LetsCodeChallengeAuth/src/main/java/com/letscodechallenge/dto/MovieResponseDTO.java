@@ -10,10 +10,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class MovieResponseDTO {
-	//Notice: the attributes are with first capital letter because that's how ombd API provide the params.
-	private String Title;
+	
+	private String title;
 
-	private String Year;
+	private String year;
 
 	private String imdbID;
 
