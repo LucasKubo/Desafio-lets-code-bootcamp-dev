@@ -14,8 +14,8 @@ Serão executados 2 projetos, o LetsCodeChallengeAuth representa uma API REST de
 - Importe os projetos como maven em sua IDE
 - Crie o banco de dados no PostgreSQL com o nome `letscodemoviedb`
 - Altere as informações de configuração do banco de dados nos arquivos `Desafio-lets-code-bootcamp-dev\LetsCodeChallengeAuth\src\main\resources\application.properties` e `Desafio-lets-code-bootcamp-dev\LetsCodeChallengeMovies\src\main\resources\application.properties`
-- Conecte no banco de dados e execute os scripts do arquivo `Desafio-lets-code-bootcamp-dev\LetsCodeChallengeAuth\src\main\resources\scripts\v1.sql`
 - Execute as duas APIs
+- Conecte no banco de dados e execute os scripts do arquivo `Desafio-lets-code-bootcamp-dev\LetsCodeChallengeAuth\src\main\resources\scripts\v1.sql`
 
 ## Executando teste via Postman
 Acesse o postman e importe o arquivo `Desafio-lets-code-bootcamp-dev\CodeChallenge-LetsCode.postman_collection.json`, nela estarão disponíveis todas requisições.
