@@ -4,6 +4,7 @@
 - Java 8 ou superior instalado
 - PostgreSQL 14 ou superior instalado
 - Postman instalado
+- IDE de desenvolvimento Java (IntelliJ ou Eclipse)
 
 ## Iniciando...
 Serão executados 2 projetos, o LetsCodeChallengeAuth representa uma API REST de gerenciamento de acesso e identidade, a ideia é que esse projeto esteja exposto na web protegendo a aplicação com a regra de negócio que é o LetsCodeChallengeMovies, essa aplicação deve ficar em uma rede privada onde apenas a aplicação de segurança terá acesso por meio de requisições.
